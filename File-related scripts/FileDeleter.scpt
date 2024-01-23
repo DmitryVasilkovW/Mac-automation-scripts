@@ -9,9 +9,11 @@ script FileDeleter
 		tell application "Finder"
 			set filesInDirectory to every file in folder directoryPath
 			repeat with i from 1 to number of items in filesInDirectory
+
 				set this_item to item i of filesInDirectory
 				set filePath to quoted form of (POSIX path of (this_item as alias))
 				set fileTags to do shell script "xattr -p com.apple.metadata:_kMDItemUserTags " & filePath
+
 				if fileTags contains "Красный\\n6" then
 					delete this_item
 				end if
