@@ -7,12 +7,22 @@ script FileTagger
 	
 	on tag()
 		do shell script "
-        for file in " & quoted form of directoryPath & "/*; do
-            xattr -w com.apple.metadata:_kMDItemUserTags '(\"Красный\\n6\")' \"$file\"
-
-        done
+    for file in " & quoted form of directoryPath & "/*; do
+ 
+        filename=$(basename \"$file\")
+     
+        if [[ $filename == *'Запись'* || $filename == *'Снимок'* ]]; then
+         
+            tags=$(xattr -p com.apple.metadata:_kMDItemUserTags \"$file\" 2>/dev/null)
+     
+            if [[ -z $tags ]]; then
+                xattr -w com.apple.metadata:_kMDItemUserTags '(\"Красный\\n6\")' \"$file\"
+            fi
+        fi
+    done
     "
 	end tag
+	
 	
 	
 	
