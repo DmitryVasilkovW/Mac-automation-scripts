@@ -39,5 +39,3 @@ script FileDeleter
 	end tagFilesWithOldPath
 	
 end script
-
-copy FileDeleter to deleter
