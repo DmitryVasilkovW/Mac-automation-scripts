@@ -3,11 +3,11 @@
 directoryPath="/t/m/p"
 
 for file in "$directoryPath"/*; do
-    # Получение имени файла без пути
+
     filename=$(basename "$file")
 
     if [[ $filename == *'Запись'* || $filename == *'Снимок'* ]]; then
-        # Получение тега файла
+ 
         tags=$(xattr -p com.apple.metadata:_kMDItemUserTags "$file" 2>/dev/null)
         
         if [[ -z $tags ]]; then
