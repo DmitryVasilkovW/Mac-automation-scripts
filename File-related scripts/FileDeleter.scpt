@@ -2,23 +2,23 @@ script FileDeleter
 	property directoryPath : missing value
 	
 	on initWithPath(path)
-		set directoryPath to POSIX file path as alias
+		set directoryPath to path
 	end initWithPath
 	
 	on deleteFiles()
-		tell application "Finder"
-			set filesInDirectory to every file in folder directoryPath
-			repeat with i from 1 to number of items in filesInDirectory
+		set fileList to list folder directoryPath without invisibles
+		
 
-				set this_item to item i of filesInDirectory
-				set filePath to quoted form of (POSIX path of (this_item as alias))
-				set fileTags to do shell script "xattr -p com.apple.metadata:_kMDItemUserTags " & filePath
-
-				if fileTags contains "Красный\\n6" then
-					delete this_item
-				end if
-			end repeat
-		end tell
+		repeat with fileName in fileList
+			set filePath to directoryPath & "/" & fileName
+			
+			set fileTags to paragraphs of (do shell script "mdls -name kMDItemFSLabel -raw " & quoted form of filePath)
+			
+			if item 1 of fileTags is "1" then
+				do shell script "rm " & quoted form of filePath
+				display dialog "Файл " & fileName & " удален"
+			end if
+		end repeat
 	end deleteFiles
 	
 	deleteFiles()
