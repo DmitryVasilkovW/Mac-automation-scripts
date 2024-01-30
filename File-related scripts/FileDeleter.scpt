@@ -16,7 +16,6 @@ script FileDeleter
 			
 			if item 1 of fileTags is "1" then
 				do shell script "rm " & quoted form of filePath
-				display dialog "Файл " & fileName & " удален"
 			end if
 		end repeat
 	end deleteFiles
