@@ -18,6 +18,7 @@ script FileDeleter
 				do shell script "rm " & quoted form of filePath
 			end if
 		end repeat
+
 	end deleteFiles
 	
 	deleteFiles()
@@ -25,8 +26,8 @@ script FileDeleter
 	
 	on deleteFilesWithNewPath(path)
 		my initWithPath(path)
-		
 		my deleteFiles()
+
 	end deleteFilesWithNewPath
 	
 	on tagFilesWithOldPath()
@@ -35,8 +36,11 @@ script FileDeleter
 			display dialog "Error: folder path is not set."
 			error number -128
 		end if
-		
-		my tag()
+
 	end tagFilesWithOldPath
 	
 end script
+
+
+set deletere to FileDeleter
+tell deletere to deleteFilesWithNewPath("/Users/dmitryvasilkov/Desktop/bimbim")

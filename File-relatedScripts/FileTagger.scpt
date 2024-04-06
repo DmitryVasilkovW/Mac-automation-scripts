@@ -24,8 +24,6 @@ script FileTagger
 	end tag
 	
 	
-	
-	
 	on tagFilesWithNewPath(path)
 		my initWithPath(path)
 		
@@ -43,3 +41,6 @@ script FileTagger
 	end tagFilesWithOldPath
 	
 end script
+
+set tegger to FileTagger
+tell tegger to tagFilesWithNewPath("/Users/dmitryvasilkov/Desktop/bimbim")
