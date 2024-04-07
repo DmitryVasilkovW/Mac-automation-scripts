@@ -7,7 +7,7 @@ script FileDeleter
 
 	on decodeUnicode(input)
 		set inputAsString to input as string
-		return do shell script "python3 /Users/dmitryvasilkov/PycharmProjects/pythonProject10/decoding.py " & quoted form of inputAsString
+		return do shell script "python3 /Users/dmitryvasilkov/IdeaProjects/Mac-automation-scripts/File-relatedScripts/AdditionalFilesForScripts/decoding.py " & quoted form of inputAsString
 	end decodeUnicode
 
 	on deleteFiles()

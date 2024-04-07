@@ -6,7 +6,7 @@ script FileTagReader
   end initWithPath
 
   on decodeUnicode(input)
-    return do shell script "python3 /Users/dmitryvasilkov/PycharmProjects/pythonProject10/decoding.py " & quoted form of input
+    return do shell script "python3 /Users/dmitryvasilkov/IdeaProjects/Mac-automation-scripts/File-relatedScripts/AdditionalFilesForScripts/decoding.py " & quoted form of input
   end decodeUnicode
 
   on readTags()
