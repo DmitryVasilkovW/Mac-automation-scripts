@@ -20,7 +20,7 @@ script FileDeleter
 			set decodedTags to my decodeUnicode(fileTags)
 
 			if decodedTags contains "красный" then
-				do shell script "rm " & quoted form of filePath
+				do shell script "mv " & quoted form of filePath & " ~/.Trash"
 			end if
 		end repeat
 
