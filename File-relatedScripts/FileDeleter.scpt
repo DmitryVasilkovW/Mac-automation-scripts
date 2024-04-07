@@ -48,4 +48,4 @@ end script
 
 
 set deletere to FileDeleter
-tell deletere to deleteFilesWithNewPath("/Users/dmitryvasilkov/Desktop/bimbim/q")
+tell deletere to deleteFilesWithNewPath("/Users/dmitryvasilkov/Desktop/bimbim")
